@@ -73,7 +73,7 @@ public abstract class Libro {
 
 	@Override
 	public String toString() {
-		return String.format("título=%s, autor=%s, número de páginas=%s", titulo, autor);
+		return String.format("título=%s, autor=%s", titulo, autor);
 	}
 	
 }

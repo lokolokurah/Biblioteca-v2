@@ -1,7 +1,5 @@
 package org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio;
 
-import java.util.Objects;
-
 public class LibroEscrito extends Libro {
 
 	private static final int PAGINAS_PARA_RECOMPENSA = 25;
