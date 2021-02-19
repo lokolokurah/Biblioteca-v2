@@ -21,7 +21,7 @@ public abstract class Libro {
 	}
 	
 	public static Libro getLibroFicticio(String titulo, String autor) {
-		return null;
+		return new LibroEscrito(titulo, autor, 10);
 	}
 
 	public abstract float getPuntos();
