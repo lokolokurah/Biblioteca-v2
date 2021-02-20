@@ -1,7 +1,6 @@
 package org.iesalandalus.programacion.biblioteca.mvc.modelo;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -13,31 +12,31 @@ import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.IAlumnos;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.ILibros;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.IPrestamos;
-import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria.Alumnos;
-import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria.Libros;
-import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria.Prestamos;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
 
-public class Modelo {
+public class Modelo implements IModelo {
 	
 	private IAlumnos alumnos;
 	private IPrestamos prestamos;
 	private ILibros libros;
 
-	public Modelo() {
-		alumnos = new Alumnos();
-		prestamos = new Prestamos();
-		libros = new Libros();
+	public Modelo(IFuenteDatos iFuenteDatos) {
+		iFuenteDatos.crearAlumnos();
+		iFuenteDatos.crearPrestamos();
+		iFuenteDatos.crearLibros();
 	}
 
+	@Override
 	public void insertar(Alumno alumno) throws OperationNotSupportedException {
 		alumnos.insertar(alumno);
 	}
 
+	@Override
 	public void insertar(Libro libro) throws OperationNotSupportedException {
 		libros.insertar(libro);
 	}
 
+	@Override
 	public void prestar(Prestamo prestamo) throws OperationNotSupportedException {
 		if (prestamo==null) 
 		{
@@ -56,6 +55,7 @@ public class Modelo {
 		prestamos.prestar(new Prestamo(alumno, libro, prestamo.getFechaPrestamo()));
 	}
 
+	@Override
 	public void devolver(Prestamo prestamo, LocalDate fechaDevolucion) throws OperationNotSupportedException {
 		if (prestamo==null) 
 		{
@@ -73,18 +73,22 @@ public class Modelo {
 		prestamos.devolver(prestamo, fechaDevolucion);
 	}
 
+	@Override
 	public Alumno buscar(Alumno alumno) {
 		return alumnos.buscar(alumno);
 	}
 
+	@Override
 	public Libro buscar(Libro libro) {
 		return libros.buscar(libro);
 	}
 
+	@Override
 	public Prestamo buscar(Prestamo prestamo) {
 		return prestamos.buscar(prestamo);
 	}
 
+	@Override
 	public void borrar(Alumno alumno) throws OperationNotSupportedException {
 		List<Prestamo> prestamosAlumno = prestamos.get(alumno);
 		for (Prestamo prestamo : prestamosAlumno) {
@@ -93,6 +97,7 @@ public class Modelo {
 		alumnos.borrar(alumno);
 	}
 
+	@Override
 	public void borrar(Libro libro) throws OperationNotSupportedException {
 		List<Prestamo> prestamosLibro = prestamos.get(libro);
 		for (Prestamo prestamo : prestamosLibro) {
@@ -101,34 +106,42 @@ public class Modelo {
 		libros.borrar(libro);
 	}
 
+	@Override
 	public void borrar(Prestamo prestamo) throws OperationNotSupportedException {
 		prestamos.borrar(prestamo);
 	}
 
+	@Override
 	public List<Alumno> getAlumnos() {
 		return alumnos.get();
 	}
 
+	@Override
 	public List<Libro> getLibros() {
 		return libros.get();
 	}
 
+	@Override
 	public List<Prestamo> getPrestamos() {
 		return prestamos.get();
 	}
 
+	@Override
 	public List<Prestamo> getPrestamos(Alumno alumno) {
 		return prestamos.get(alumno);
 	}
 
+	@Override
 	public List<Prestamo> getPrestamos(Libro libro) {
 		return prestamos.get(libro);
 	}
 
+	@Override
 	public List<Prestamo> getPrestamos(LocalDate fechaPrestamo) {
 		return prestamos.get(fechaPrestamo);
 	}
 	
+	@Override
 	public Map<Curso, Integer> getEstadisticaMensualPorCurso(LocalDate fecha) {
 		return prestamos.getEstadisticaMensualPorCurso(fecha);
 	}
