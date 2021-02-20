@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.biblioteca.mvc.vista;
+package org.iesalandalus.programacion.biblioteca.mvc.vista.texto;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

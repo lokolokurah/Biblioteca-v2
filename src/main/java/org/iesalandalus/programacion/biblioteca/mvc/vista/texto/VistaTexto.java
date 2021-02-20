@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.biblioteca.mvc.vista;
+package org.iesalandalus.programacion.biblioteca.mvc.vista.texto;
 
 import java.util.List;
 import java.util.Map;
@@ -10,19 +10,22 @@ import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Prestamo;
+import org.iesalandalus.programacion.biblioteca.mvc.vista.IVista;
 
-public class Vista {
+public class VistaTexto implements IVista {
 
 	private Controlador controlador;
 
-	public Vista() {
+	public VistaTexto() {
 		Opcion.setVista(this);
 	}
 
+	@Override
 	public void setControlador(Controlador controlador) {
 		this.controlador = controlador;
 	}
 
+	@Override
 	public void comenzar() {
 		Consola.mostrarCabecera("Gestión de la Biblioteca del IES Al-Ándalus");
 		int ordinalOpcion;
@@ -34,10 +37,12 @@ public class Vista {
 		} while (ordinalOpcion != Opcion.SALIR.ordinal());
 	}
 
+	@Override
 	public void terminar() {
 		controlador.terminar();
 	}
 
+	@Override
 	public void insertarAlumno() {
 		Consola.mostrarCabecera("Insertar Alumno");
 		try {
@@ -48,6 +53,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void buscarAlumno() {
 		Consola.mostrarCabecera("Buscar Alumno");
 		Alumno alumno;
@@ -60,6 +66,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void borrarAlumno() {
 		Consola.mostrarCabecera("Borrar Alumno");
 		try {
@@ -70,6 +77,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void listarAlumnos() {
 		Consola.mostrarCabecera("Listado de Alumnos");
 		List<Alumno> alumnos = controlador.getAlumnos();
@@ -83,6 +91,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void insertarLibro() {
 		Consola.mostrarCabecera("Insertar Libro");
 		try {
@@ -93,6 +102,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void buscarLibro() {
 		Consola.mostrarCabecera("Buscar Libro");
 		Libro libro;
@@ -105,6 +115,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void borrarLibro() {
 		Consola.mostrarCabecera("Borrar Libro");
 		try {
@@ -115,6 +126,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void listarLibros() {
 		Consola.mostrarCabecera("Listado de Libros");
 		List<Libro> libros = controlador.getLibros();
@@ -128,6 +140,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void prestarLibro() {
 		Consola.mostrarCabecera("Prestar Libro");
 		try {
@@ -138,6 +151,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void devolverLibro() {
 		Consola.mostrarCabecera("Devolver Libro");
 		try {
@@ -148,6 +162,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void buscarPrestamo() {
 		Consola.mostrarCabecera("Buscar Prestamo");
 		Prestamo prestamo;
@@ -160,6 +175,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void borrarPrestamo() {
 		Consola.mostrarCabecera("Borrar Prestamo");
 		try {
@@ -170,6 +186,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void listarPrestamos() {
 		Consola.mostrarCabecera("Listado de Prestamos");
 		List<Prestamo> prestamos = controlador.getPrestamos();
@@ -183,6 +200,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void listarPrestamosAlumno() {
 		Consola.mostrarCabecera("Listado de Prestamos por Alumno");
 		try {
@@ -200,6 +218,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void listarPrestamosLibro() {
 		Consola.mostrarCabecera("Listado de Prestamos por Libro");
 		try {
@@ -217,6 +236,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void listarPrestamosFecha() {
 		Consola.mostrarCabecera("Listado de Prestamos por Fecha");
 		try {
@@ -234,6 +254,7 @@ public class Vista {
 		}
 	}
 
+	@Override
 	public void mostrarEstadisticaMensualPorCurso()
 	{
 		Consola.mostrarCabecera("Estadistica mensual por curso");
