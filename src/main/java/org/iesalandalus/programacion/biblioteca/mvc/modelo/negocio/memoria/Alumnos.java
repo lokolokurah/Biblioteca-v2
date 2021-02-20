@@ -1,4 +1,4 @@
-package org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio;
+package org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -7,8 +7,9 @@ import java.util.List;
 import javax.naming.OperationNotSupportedException;
 
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.IAlumnos;
 
-public class Alumnos {
+public class Alumnos implements IAlumnos {
 
 	private List<Alumno> coleccionAlumnos;
 
@@ -17,6 +18,7 @@ public class Alumnos {
 		coleccionAlumnos = new ArrayList<>();
 	}
 
+	@Override
 	public List<Alumno> get() {
 		List<Alumno> alumnosOrdenados = copiaProfundaAlumnos();
 		alumnosOrdenados.sort(Comparator.comparing(Alumno::getNombre));
@@ -32,10 +34,12 @@ public class Alumnos {
 		return copiaAlumnos;
 	}
 
+	@Override
 	public int getTamano() {
 		return coleccionAlumnos.size();
 	}
 
+	@Override
 	public void insertar(Alumno alumno) throws OperationNotSupportedException {
 		if (alumno == null) {
 			throw new NullPointerException("ERROR: No se puede insertar un alumno nulo.");
@@ -48,6 +52,7 @@ public class Alumnos {
 		}	
 	}
 
+	@Override
 	public Alumno buscar(Alumno alumno) {
 		if (alumno == null) {
 			throw new IllegalArgumentException("ERROR: No se puede buscar un alumno nulo.");
@@ -60,6 +65,7 @@ public class Alumnos {
 		}
 	}
 
+	@Override
 	public void borrar(Alumno alumno) throws OperationNotSupportedException {
 		if (alumno == null) {
 			throw new IllegalArgumentException("ERROR: No se puede borrar un alumno nulo.");
