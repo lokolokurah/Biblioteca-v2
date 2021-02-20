@@ -76,12 +76,12 @@ public class Consola {
 	}
 
 	public static Libro leerLibro() {
-		Libro libro = null; 
+		Libro libro = null;
+		int tipoLibro = 0;
 		System.out.print("\nIntroduce el titulo del libro: ");
 		String titulo = Entrada.cadena();
 		System.out.print("Introduce el autor del libro: ");
 		String autor = Entrada.cadena();
-		int tipoLibro = 0;
 		do {
 			System.out.print("Introduce el tipo de libro: [1] -> Libro escrito | [2] -> Audio Libro: ");
 			tipoLibro = Entrada.entero();
@@ -107,7 +107,7 @@ public class Consola {
 	}
 
 	public static Prestamo leerPrestamo() {
-		return new Prestamo(leerAlumno(), leerLibro(), leerFecha());
+		return new Prestamo(leerAlumnoFicticio(), leerLibroFicticio(), leerFecha());
 	}
 
 	public static Prestamo leerPrestamoFicticio() {

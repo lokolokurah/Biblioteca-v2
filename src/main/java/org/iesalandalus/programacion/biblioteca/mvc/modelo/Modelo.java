@@ -21,9 +21,9 @@ public class Modelo implements IModelo {
 	private ILibros libros;
 
 	public Modelo(IFuenteDatos iFuenteDatos) {
-		iFuenteDatos.crearAlumnos();
-		iFuenteDatos.crearPrestamos();
-		iFuenteDatos.crearLibros();
+		alumnos = iFuenteDatos.crearAlumnos();
+		prestamos = iFuenteDatos.crearPrestamos();
+		libros = iFuenteDatos.crearLibros();
 	}
 
 	@Override
