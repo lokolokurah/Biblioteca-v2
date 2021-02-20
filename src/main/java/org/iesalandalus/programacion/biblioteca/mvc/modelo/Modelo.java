@@ -12,6 +12,7 @@ import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Prestamo;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.IAlumnos;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.ILibros;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.IPrestamos;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria.Alumnos;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria.Libros;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.memoria.Prestamos;
@@ -20,7 +21,7 @@ import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
 public class Modelo {
 	
 	private IAlumnos alumnos;
-	private Prestamos prestamos;
+	private IPrestamos prestamos;
 	private ILibros libros;
 
 	public Modelo() {
