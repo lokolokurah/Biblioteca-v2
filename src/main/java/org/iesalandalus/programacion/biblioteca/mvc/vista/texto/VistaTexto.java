@@ -42,7 +42,6 @@ public class VistaTexto implements IVista {
 		controlador.terminar();
 	}
 
-	@Override
 	public void insertarAlumno() {
 		Consola.mostrarCabecera("Insertar Alumno");
 		try {
@@ -53,7 +52,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void buscarAlumno() {
 		Consola.mostrarCabecera("Buscar Alumno");
 		Alumno alumno;
@@ -66,7 +64,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void borrarAlumno() {
 		Consola.mostrarCabecera("Borrar Alumno");
 		try {
@@ -77,7 +74,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void listarAlumnos() {
 		Consola.mostrarCabecera("Listado de Alumnos");
 		List<Alumno> alumnos = controlador.getAlumnos();
@@ -91,7 +87,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void insertarLibro() {
 		Consola.mostrarCabecera("Insertar Libro");
 		try {
@@ -102,7 +97,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void buscarLibro() {
 		Consola.mostrarCabecera("Buscar Libro");
 		Libro libro;
@@ -115,7 +109,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void borrarLibro() {
 		Consola.mostrarCabecera("Borrar Libro");
 		try {
@@ -126,7 +119,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void listarLibros() {
 		Consola.mostrarCabecera("Listado de Libros");
 		List<Libro> libros = controlador.getLibros();
@@ -140,7 +132,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void prestarLibro() {
 		Consola.mostrarCabecera("Prestar Libro");
 		try {
@@ -151,7 +142,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void devolverLibro() {
 		Consola.mostrarCabecera("Devolver Libro");
 		try {
@@ -162,7 +152,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void buscarPrestamo() {
 		Consola.mostrarCabecera("Buscar Prestamo");
 		Prestamo prestamo;
@@ -175,7 +164,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void borrarPrestamo() {
 		Consola.mostrarCabecera("Borrar Prestamo");
 		try {
@@ -186,7 +174,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void listarPrestamos() {
 		Consola.mostrarCabecera("Listado de Prestamos");
 		List<Prestamo> prestamos = controlador.getPrestamos();
@@ -200,7 +187,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void listarPrestamosAlumno() {
 		Consola.mostrarCabecera("Listado de Prestamos por Alumno");
 		try {
@@ -218,7 +204,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void listarPrestamosLibro() {
 		Consola.mostrarCabecera("Listado de Prestamos por Libro");
 		try {
@@ -236,7 +221,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void listarPrestamosFecha() {
 		Consola.mostrarCabecera("Listado de Prestamos por Fecha");
 		try {
@@ -254,7 +238,6 @@ public class VistaTexto implements IVista {
 		}
 	}
 
-	@Override
 	public void mostrarEstadisticaMensualPorCurso()
 	{
 		Consola.mostrarCabecera("Estadistica mensual por curso");
