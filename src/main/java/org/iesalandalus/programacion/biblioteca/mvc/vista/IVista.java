@@ -1,10 +1,10 @@
 package org.iesalandalus.programacion.biblioteca.mvc.vista;
 
-import org.iesalandalus.programacion.biblioteca.mvc.controlador.Controlador;
+import org.iesalandalus.programacion.biblioteca.mvc.controlador.IControlador;
 
 public interface IVista {
 
-	void setControlador(Controlador controlador);
+	void setControlador(IControlador controlador);
 
 	void comenzar();
 

@@ -5,7 +5,7 @@ import java.util.Map;
 
 import javax.naming.OperationNotSupportedException;
 
-import org.iesalandalus.programacion.biblioteca.mvc.controlador.Controlador;
+import org.iesalandalus.programacion.biblioteca.mvc.controlador.IControlador;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
@@ -14,14 +14,14 @@ import org.iesalandalus.programacion.biblioteca.mvc.vista.IVista;
 
 public class VistaTexto implements IVista {
 
-	private Controlador controlador;
+	private IControlador controlador;
 
 	public VistaTexto() {
 		Opcion.setVista(this);
 	}
 
 	@Override
-	public void setControlador(Controlador controlador) {
+	public void setControlador(IControlador controlador) {
 		this.controlador = controlador;
 	}
 
