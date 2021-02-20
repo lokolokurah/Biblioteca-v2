@@ -38,18 +38,15 @@ public class Modelo implements IModelo {
 
 	@Override
 	public void prestar(Prestamo prestamo) throws OperationNotSupportedException {
-		if (prestamo==null) 
-		{
+		if (prestamo==null) {
 			throw new NullPointerException("ERROR: No se puede prestar un préstamo nulo.");
 		}
 		Alumno alumno = alumnos.buscar(prestamo.getAlumno());
-		if (alumno==null)
-		{
+		if (alumno==null) {
 			throw new OperationNotSupportedException("ERROR: No existe el alumno del préstamo.");
 		}
 		Libro libro = libros.buscar(prestamo.getLibro());
-		if (libro==null) 
-		{
+		if (libro==null) {
 			throw new OperationNotSupportedException("ERROR: No existe el libro del préstamo.");
 		}
 		prestamos.prestar(new Prestamo(alumno, libro, prestamo.getFechaPrestamo()));
@@ -57,17 +54,14 @@ public class Modelo implements IModelo {
 
 	@Override
 	public void devolver(Prestamo prestamo, LocalDate fechaDevolucion) throws OperationNotSupportedException {
-		if (prestamo==null) 
-		{
+		if (prestamo==null) {
 			throw new NullPointerException("ERROR: No se puede devolver un préstamo nulo.");
 		}
-		if (fechaDevolucion==null)
-		{
+		if (fechaDevolucion==null) {
 			throw new NullPointerException("ERROR: La fecha de devolución del prestamo no puede ser nula.");
 		}
 		prestamo = prestamos.buscar(prestamo);
-		if (prestamo==null)
-		{
+		if (prestamo==null) {
 			throw new OperationNotSupportedException("ERROR: No se puede devolver un préstamo no prestado.");
 		}
 		prestamos.devolver(prestamo, fechaDevolucion);
