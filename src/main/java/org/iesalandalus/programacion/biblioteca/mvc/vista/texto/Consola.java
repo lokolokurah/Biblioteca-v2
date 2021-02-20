@@ -5,8 +5,10 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Alumno;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.AudioLibro;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Curso;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Libro;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.LibroEscrito;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.dominio.Prestamo;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
@@ -74,13 +76,26 @@ public class Consola {
 	}
 
 	public static Libro leerLibro() {
+		Libro libro = null; 
 		System.out.print("\nIntroduce el titulo del libro: ");
 		String titulo = Entrada.cadena();
 		System.out.print("Introduce el autor del libro: ");
 		String autor = Entrada.cadena();
-		System.out.print("Introduce el número de páginas del libro: ");
-		int numPaginas = Entrada.entero();
-		return new Libro(titulo, autor, numPaginas);
+		int tipoLibro = 0;
+		do {
+			System.out.print("Introduce el tipo de libro: [1] -> Libro escrito | [2] -> Audio Libro: ");
+			tipoLibro = Entrada.entero();
+		} while (tipoLibro<1 || tipoLibro>2);
+		if (tipoLibro==1) {
+			System.out.print("Introduce el número de páginas del libro: ");
+			int numPaginas = Entrada.entero();
+			libro = new LibroEscrito(titulo, autor, numPaginas);
+		} else {
+			System.out.print("Introduce la duración: ");
+			int duracion = Entrada.entero();
+			libro = new AudioLibro(titulo, autor, duracion);
+		}
+		return libro;
 	}
 
 	public static Libro leerLibroFicticio() {
